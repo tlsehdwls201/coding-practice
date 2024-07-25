@@ -12,13 +12,7 @@ class Solution {
                 }
             }
         }
-        for(int i = 0; i < sizes.length; i++) {
-            
-            System.out.print(Arrays.toString(sizes[i]));
-            
-            System.out.println();
-        }
-        
+      
         int max1 = 0;
         int max2 = 0;
         for(int i = 0; i < sizes.length; i++) {            
