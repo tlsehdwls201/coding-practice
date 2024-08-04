@@ -4,12 +4,9 @@ class Solution {
         String s = Integer.toString(order);
         char ch[] = s.toCharArray();
         for(int i = 0; i < ch.length; i++) {
-            if(ch[i] == '3')
+            if(ch[i] == '3' || ch[i] == '6' || ch[i] == '9')
                 answer++;
-            else if(ch[i] == '6')
-                answer++;
-            else if(ch[i] == '9')
-                answer++;
+           
         }
         return answer;
     }
