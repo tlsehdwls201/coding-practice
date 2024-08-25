@@ -1,14 +1,14 @@
 class Solution {
     public int solution(int n) {
         int answer = 0;
-        int result = 0;
-        while(n > 0) {
-            result++;
-            if(Integer.toString(result).contains("3") || result % 3==0)
-                continue;
-            n--;
+        int a = 0;
+        for(int i = 1; i <= n; i++) {
+            a++;
+            if(Integer.toString(a).contains("3") || a % 3 == 0)
+                i--;
+            
         }
-        answer = result;
+        answer = a;
         return answer;
     }
 }
