@@ -1,10 +1,10 @@
 # [level 0] 겹치는 선분의 길이 - 120876 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120876#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120876) 
 
 ### 성능 요약
 
-메모리: 73 MB, 시간: 4.01 ms
+메모리: 78.2 MB, 시간: 0.61 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 08월 26일 18:29:02
+2024년 08월 26일 18:30:02
 
 ### 문제 설명
 

@@ -8,7 +8,7 @@ class Solution {
                 m.put(j, m.getOrDefault(j, 0) + 1);
             }
         }
-        System.out.println(m);
+       
         int count = 0;
       	
         for(Map.Entry<Integer, Integer> e : m.entrySet()) {
