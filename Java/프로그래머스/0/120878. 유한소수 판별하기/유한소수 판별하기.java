@@ -1,15 +1,10 @@
 class Solution {
     int c = 1;
     public int solution(int a, int b) {
-        int answer = 2;
+        int answer = 1;
         int f = you(a, b);
         int x = a / f;
-        int y = b / f;
-        int count = 0;
-        if(!(y % 2 == 0 || y % 5 == 0 || y == 1))
-            answer = 2;
-        if((int)((x * Math.pow(10, c+1)) % y) == 0)
-       		answer = 1;
+        int y = b / f; 
         if((int)((x * Math.pow(10, c+1)) % y) != 0)
             answer = 2;
         return answer;

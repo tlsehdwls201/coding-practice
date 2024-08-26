@@ -1,10 +1,10 @@
 # [level 0] 유한소수 판별하기 - 120878 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120878#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120878) 
 
 ### 성능 요약
 
-메모리: 76.8 MB, 시간: 0.10 ms
+메모리: 72.5 MB, 시간: 0.12 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 08월 26일 20:34:56
+2024년 08월 26일 20:36:14
 
 ### 문제 설명
 
