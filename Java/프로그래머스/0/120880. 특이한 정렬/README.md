@@ -1,10 +1,10 @@
 # [level 0] 특이한 정렬 - 120880 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120880#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120880) 
 
 ### 성능 요약
 
-메모리: 74.8 MB, 시간: 0.31 ms
+메모리: 73.1 MB, 시간: 0.17 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 08월 27일 17:09:48
+2024년 08월 27일 17:36:11
 
 ### 문제 설명
 
