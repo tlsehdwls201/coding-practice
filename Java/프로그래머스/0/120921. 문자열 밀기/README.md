@@ -1,10 +1,10 @@
 # [level 0] 문자열 밀기 - 120921 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120921#qna) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120921) 
 
 ### 성능 요약
 
-메모리: 74.6 MB, 시간: 2.36 ms
+메모리: 76.3 MB, 시간: 0.05 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 09월 01일 22:38:56
+2024년 09월 01일 22:44:10
 
 ### 문제 설명
 
