@@ -1,23 +1,17 @@
-import java.util.*;
+
 class Solution {
     public int solution(int[] ingredient) {
         int answer = 0;
-		List<Integer> l = new ArrayList<>();
+        int arr[] = new int[ingredient.length];
+        int space = 0;
         for(int i : ingredient) {
-            l.add(i);
-        }
-        for(int i = 0; i < l.size()-3; i++) {
-            if(l.get(i) == 1 && l.get(i+1) == 2 && l.get(i+2) == 3 && l.get(i+3) == 1) {
-                l.remove(i);
-                l.remove(i);
-                l.remove(i);
-                l.remove(i);
+            arr[space++] = i;
+            if(space >= 4 && arr[space-1] == 1 && arr[space-2] == 3 && arr[space-3] == 2 && arr[space-4] == 1) {
                 answer++;
-                if(i >= 0)
-                    i -= 3;
-                if(i <= -2) 
-                    i = -1;
+                space-=4;
             }
+          
+            
         }
         return answer;
     }
