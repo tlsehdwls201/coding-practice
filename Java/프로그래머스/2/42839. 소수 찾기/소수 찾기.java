@@ -15,7 +15,7 @@ class Solution {
         if(range == idx) {
             int num = Integer.parseInt(now);
             if(isPrime(num)) s.add(num);
-            return;
+            
         }
         
         for(int i = 0; i < numbers.length(); i++) {
