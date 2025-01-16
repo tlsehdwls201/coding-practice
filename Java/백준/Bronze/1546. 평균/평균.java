@@ -1,26 +1,35 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(r.readLine());
+        String s[] = r.readLine().split(" ");
+        double sum = 0;
+        double avg = 0;
+        int max = 0;
+        for(int i = 0; i < N; i++) {
+            if(max < Integer.parseInt(s[i])) {
+                max = Integer.parseInt(s[i]);
+            }
 
-	public static void main(String[] args) {
-		Scanner std = new Scanner(System.in);
-		int n = std.nextInt();
-		int max = 0;
-		double s[] = new double[n];
-		for(int i = 0; i < n; i++) {
-			int p = std.nextInt();
-			if(max < p)
-				max = p;
-			s[i] = p;
-		}
-		
-		double result = 0;
-		
-		for(int i = 0; i < s.length; i++) {
-			result += (s[i]/max) * 100;
-		}
-		result /= n;
-		System.out.println(result);
-		
-	}
+        }
+        double arr[] = new double[N];
+        for(int i = 0; i < N; i++) {
+            arr[i] = (double)(((double)Integer.parseInt(s[i]) / (double)max) * 100);
+        }
+
+        for(double add : arr) {
+            sum += add;
+        }
+
+        avg = (double)(sum / N);
+        w.write(""+avg);
+
+        w.flush();
+        w.close();
+        r.close();
+    }
 }
