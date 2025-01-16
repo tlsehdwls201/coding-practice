@@ -1,36 +1,45 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(r.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        String s[] = new String[N];
+        s = r.readLine().split(" ");
+        int arr[] = new int[N];
+        int sum_arr[] = new int[N];
+        for(int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(s[i]);
+            if(i == 0) {
+                sum_arr[i] = arr[i];
+            }
+            else {
+                sum_arr[i] = sum_arr[i-1] + arr[i];
+            }
+        }
 
-	public static void main(String[] args) {
-		Scanner std = new Scanner(System.in);
-		int n = std.nextInt();
-		int q = std.nextInt();
-		int s[] = new int[n];
-		int ss[] = new int[n];
-		for(int i = 0; i < n; i++) {
-			int a = std.nextInt();
-			s[i] = a;
-			if(i == 0) {
-				ss[i] = s[i];
-			}
-			else
-				ss[i] = ss[i-1] + s[i];
-		}
-		
-		int sum = 0;
-		for(int i = 0; i < q; i++) {
-			int x = std.nextInt();
-			int y = std.nextInt();
-			if(x == 1) {
-				sum = ss[y-1];
-			}
-			else
-				sum = ss[y-1] - ss[x-2];
-			System.out.println(sum);
-			sum = 0;
-		}
-	
-		
-	}
+        for(int i = 0; i < M; i++) {
+            int sum = 0;
+            String str[] = r.readLine().split(" ");
+            int a = Integer.parseInt(str[0]);
+            int b = Integer.parseInt(str[1]);
+
+            if(a < 2) {
+                sum = sum_arr[b-1];
+            }
+            else
+                sum = sum_arr[b-1] - sum_arr[a-2];
+
+            w.write(sum + "\n");
+        }
+
+
+        w.flush();
+        w.close();
+        r.close();
+    }
 }
