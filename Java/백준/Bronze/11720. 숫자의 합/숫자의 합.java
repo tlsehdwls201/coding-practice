@@ -1,19 +1,21 @@
 import java.util.*;
+import java.io.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException{
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(r.readLine());
+        String s[] = r.readLine().split("");
+        int sum = 0;
+        for(int i = 0; i < N; i++) {
+            int a = Integer.parseInt(s[i]);
+            sum += a;
+        }
+        w.write(""+sum);
 
-	public static void main(String[] args) {
-		Scanner std = new Scanner(System.in);
-		int n = std.nextInt();
-		String s = "";
-		
-			s = std.next();
-		
-		String str[] = s.split("");
-		int sum = 0;
-		for(int i = 0; i < str.length; i++) {
-			sum += Integer.parseInt(str[i]);
-		}
-		System.out.println(sum);
-	}
+        w.flush();
+        w.close();
+        r.close();
+    }
 }
