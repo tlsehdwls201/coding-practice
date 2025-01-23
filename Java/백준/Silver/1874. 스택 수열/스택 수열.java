@@ -2,49 +2,47 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(r.readLine());
+        Stack<Integer> stack = new Stack<>();
+        int arr[] = new int[N];
+        List<String> l = new ArrayList<>();
+        for(int i = 0; i < N; i++) {
+            arr[i] = Integer.parseInt(r.readLine());
+        }
+        int j = 1;
+        for(int i = 1; i <= N; i++) {
 
-	public static void main(String[] args) throws IOException{
-		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(r.readLine());
-		Stack<Integer> s = new Stack<>();
-		int count = 1;
-		Vector v = new Vector();
-		for(int i = 0; i < n; i++) {
-			int a = Integer.parseInt(r.readLine());
-			if(count <= a) {
-				while(true) {
-					s.push(count);
-					v.add("+");
-					
-					if(count == a ) {
-						s.pop();
-						v.add("-");
-						count++;
-						break;
-					}
-					count++;
-				}
-			}
-			
-			else {
-				if(s.peek() != a) {
-					v.clear();
-					v.add("NO");
-					break;
-				}
-				else {
-					s.pop();
-					v.add("-");
-				}	
-			}
-		}
-		for(int i = 0; i < v.size(); i++) {
-			w.write(v.get(i) + "\n");
-			
-		}
-		w.flush();
-		w.close();
-		r.close();
-	}
+            while(j <= arr[i-1]) {
+                stack.push(j);
+                l.add("+");
+                j++;
+
+            }
+
+            if(j > arr[i-1]) {
+                if(arr[i-1] != stack.peek()) {
+                    l.clear();
+                    w.write("NO" + "\n");
+                    break;
+                }
+                stack.pop();
+                l.add("-");
+
+            }
+
+
+        }
+
+        for(int i = 0; i < l.size(); i++) {
+            w.write(l.get(i) + "\n");
+        }
+
+
+        w.flush();
+        w.close();
+        r.close();
+    }
 }
