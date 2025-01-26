@@ -2,24 +2,27 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
+    static int checkArr[];
+    static int arr[];
+    static int checkIndex;
+    public static void main(String[] args) throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        int N = Integer.parseInt(r.readLine());
+        Queue<Integer> queue = new LinkedList<>();
+        for(int i = 1; i <= N; i++) {
+            queue.add(i);
+        }
 
-	public static void main(String[] args) throws IOException{
-		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(r.readLine());
-		Queue<Integer> q = new LinkedList<>();
-		for(int i = 1; i <= n; i++) {
-			q.add(i);
-		}
-		while(q.size() != 1) {
-				q.poll();
-				q.add(q.peek());
-				q.poll();
-			
-		}
-		w.write(q.poll() + "\n");
-		w.flush();
-		w.close();
-		r.close();
-	}
+        while(queue.size() != 1) {
+            queue.remove();
+            int a = queue.remove();
+            queue.add(a);
+        }
+        w.write(queue.peek() + "\n");
+
+        w.flush();
+        w.close();
+        r.close();
+    }
 }
