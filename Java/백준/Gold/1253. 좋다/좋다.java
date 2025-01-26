@@ -2,49 +2,48 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(r.readLine());
-        String str[] = r.readLine().split(" ");
-        int arr[] = new int[N];
+        StringTokenizer st = new StringTokenizer(r.readLine());
+        long arr[] = new long[N];
         for(int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(str[i]);
+            arr[i] = Long.parseLong(st.nextToken());
         }
-
         Arrays.sort(arr);
 
-        int k = 0;
 
-        int count = 0;
+        long result = 0;
+        for(int i = 0; i < N; i++) {
+            int start = 0;
+            int end = N-1;
 
-        while(k < N) {
-            int i = 0, j = arr.length-1;
-            while(i < j) {
-                if(k == i) {
-                    i++;
-                    continue;
+
+            while(start < end) {
+                if(arr[start] + arr[end] > arr[i]) {
+                    end--;
                 }
-                if(k == j) {
-                    j--;
-                    continue;
+                else if(arr[start] + arr[end] < arr[i]) {
+                    start++;
                 }
-
-                if (arr[i] + arr[j] < arr[k]) {
-                    i++;
-                } else if (arr[i] + arr[j] > arr[k]) {
-
-                    j--;
-                } else {
-                    count++;
-                    break;
+                else {
+                    if(start != i && end != i) {
+                        result++;
+                        break;
+                    }
+                    else if(start == i) {
+                        start++;
+                    }
+                    else {
+                        end--;
+                    }
                 }
-
-
             }
-            k++;
+
+
         }
-        w.write(count + "\n");
+        w.write(result + "\n");
 
 
 
@@ -52,4 +51,5 @@ public class Main {
         w.close();
         r.close();
     }
+
 }
