@@ -2,37 +2,38 @@ import java.util.*;
 import java.io.*;
 
 public class Main {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
         int N = Integer.parseInt(r.readLine());
         int M = Integer.parseInt(r.readLine());
-
+        StringTokenizer st = new StringTokenizer(r.readLine());
         int arr[] = new int[N];
-        String str[] = r.readLine().split(" ");
         for(int i = 0; i < N; i++) {
-            arr[i] = Integer.parseInt(str[i]);
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        int i = 0;
-        int j = arr.length-1;
-
         Arrays.sort(arr);
-
+        int start = 0;
+        int end = N-1;
+        int sum = arr[start] + arr[end];
         int result = 0;
-        while(i < j) {
-            if(arr[i] + arr[j] < M) {
-                i++;
+
+        while(start < end) {
+            if(sum < M) {
+                start++;
+                sum = arr[start] + arr[end];
             }
-            else if(arr[i] + arr[j] > M) {
-                j--;
+            else if(sum > M) {
+                end--;
+                sum = arr[start] + arr[end];
             }
             else {
+                start++;
+                sum = arr[start] + arr[end];
                 result++;
-                i++;
             }
         }
         w.write(result + "\n");
-
 
 
 
@@ -40,4 +41,5 @@ public class Main {
         w.close();
         r.close();
     }
+
 }
