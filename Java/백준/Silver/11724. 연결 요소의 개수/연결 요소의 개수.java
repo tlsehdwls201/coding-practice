@@ -1,58 +1,57 @@
 import java.util.*;
 import java.io.*;
 
+
 public class Main {
-	static List<List<Integer>> ss; // 2차원 배열 느낌
-	static boolean visited[];
-	
-	public static void main(String[] args) throws IOException{
-		//Scanner std = new Scanner(System.in);
-		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
-		BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
-		StringTokenizer st = new StringTokenizer(r.readLine());
-		int N = Integer.parseInt(st.nextToken());
-		int M = Integer.parseInt(st.nextToken());
-		ss = new ArrayList<>();
-		visited = new boolean[N+1]; // 인덱스 1번째부터 비교하기 위함
-		
-		for(int i = 0; i <= N; i++) {
-			ss.add(new ArrayList<>());
-		}
-		
-		for(int i = 0; i < M; i++) {
-			int s, e;
-			String str[] = r.readLine().split(" ");
-			s = Integer.parseInt(str[1]);
-			e = Integer.parseInt(str[0]);
-			ss.get(e).add(s);
-			ss.get(s).add(e);
-		}
-		
-		int count = 0;
-		
-		for(int i = 1; i < visited.length; i++) {
-			if(!visited[i]) {
-				count++;
-				dfs(i);
-			}
-		}
-		w.write(count + "\n");
-		
-		w.flush();
-		w.close();
-		r.close();
-	}
-	static void dfs(int v) {
-		if(visited[v]) {
-			return;
-		}
-		
-		visited[v] = true;
-		
-		for(int i : ss.get(v)) {
-			if(visited[i] == false) {
-				dfs(i);
-			}
-		}
-	}
+    static ArrayList<Integer> A[];
+    static boolean visited[];
+    public static void main(String[] args) throws IOException {
+        BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter w = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(r.readLine());
+        int N = Integer.parseInt(st.nextToken());
+        int M = Integer.parseInt(st.nextToken());
+        visited = new boolean[N + 1]; // N + 1인 이유 -> 배열의 0번째 인덱스 사용 안함
+        A = new ArrayList[N + 1]; // 위와 동일
+
+        for(int i = 1; i <= N; i++) {
+            A[i] = new ArrayList<Integer>();
+        }
+
+        for(int i = 0; i < M; i++) {
+            st = new StringTokenizer(r.readLine());
+            int s = Integer.parseInt(st.nextToken());
+            int e = Integer.parseInt(st.nextToken());
+            A[s].add(e); // 방향성이 없는 노드이기에 s번째 배열 리스트 공간에 e값을 가지는 노드를 삽입
+            A[e].add(s);
+        }
+
+        int count = 0; // dfs의 횟수를 저장하는 변수
+        for(int i = 1; i <= N; i++) {
+            if (!visited[i]) {// 방문하지 않은 노드가 있다면? 방문 했으면 true, 안했으면 false
+                count++;
+                DFS(i);
+            }
+        }
+
+        w.write(count + "\n");
+
+        w.flush();
+        w.close();
+        r.close();
+    }
+
+    private static void DFS(int i) {
+        if(visited[i])
+            return;
+
+        visited[i] = true; // 방문했으니 이제 true로 전환
+
+        for(int idx : A[i]) { // 노드의 인접 노드들을 추출, 확장된 for문 사용!
+            if(!visited[idx]) {
+                DFS(idx); // 재귀함수
+            }
+        }
+    }
+
 }
